@@ -11,8 +11,8 @@ class UsersRepositoryImpl implements UsersRepository {
   const UsersRepositoryImpl({
     required UsersRemoteDataSource remoteDataSource,
     required NetworkInfo networkInfo,
-  }) : _remoteDataSource = remoteDataSource,
-       _networkInfo = networkInfo;
+  })  : _remoteDataSource = remoteDataSource,
+        _networkInfo = networkInfo;
 
   final UsersRemoteDataSource _remoteDataSource;
   final NetworkInfo _networkInfo;
@@ -25,9 +25,8 @@ class UsersRepositoryImpl implements UsersRepository {
 
     try {
       final models = await _remoteDataSource.getUsers();
-      final entities = models
-          .map((model) => model.toEntity())
-          .toList(growable: false);
+      final entities =
+          models.map((model) => model.toEntity()).toList(growable: false);
 
       return Success<List<UserEntity>>(entities);
     } on ServerException catch (exception) {

@@ -1,4 +1,5 @@
 import 'package:core_sim_ia/app/router.dart';
+import 'package:core_sim_ia/app/theme.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -7,14 +8,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CoreSim IA',
+      title: 'Stratova',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: AppRouter.users,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
-      ),
+      initialRoute: AppRouter.workspace,
+      theme: buildStratovaTheme(),
     );
   }
 }
